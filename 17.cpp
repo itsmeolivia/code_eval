@@ -34,10 +34,11 @@ int main(int argc, char** argv) {
         
         for(unsigned int i = 0; i < array.size(); i++) {
             total = 0;
-            for (unsigned int j = i; j < array.size(); j++)
+            for (unsigned int j = i; j < array.size(); j++) {
                 total += array[j];
                 if (total > large)
                     large = total;
+            }
         }
         cout << large << "\n";
         
