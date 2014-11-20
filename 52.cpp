@@ -54,7 +54,9 @@ int main(int argc, char** argv) {
             num %= 100000000;
         }
         
-        if (num /10000000)
+        if (num /1000000 != 0) {
+            
+        }
     }
     
     return 0;
