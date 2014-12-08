@@ -17,8 +17,7 @@ int main(int argc, char** argv) {
     
     stack<char> list;
     
-    while(file.good()){
-        getline(file, line);
+    while(getline(file, line)){
         istringstream iss(line);
         
         while (!list.empty()) list.pop();
@@ -36,11 +35,9 @@ int main(int argc, char** argv) {
             
         }
         
-        cout << b << endl << line << endl ;
+
         
-        if (b > list.size() || list.empty()) continue;
-        
-        else {
+        if (b <= list.size()){
             for(int i = 1; i < b; i++)
                 list.pop();
             cout << list.top() << '\n';
