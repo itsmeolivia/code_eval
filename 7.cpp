@@ -9,6 +9,20 @@ bool isop(char p) {
     return (p == "+" || p == "*" || p == "/");
 }
 
+char math(int a, int b, char c) {
+
+    switch(c):
+    case "+":
+      return a + b;
+      break;
+    case "*":
+      return a * b;
+      break;
+    case "/":
+      return b / a;
+      break;
+}
+
 int main(int argc, char** argv){
 
     ifstream file;
@@ -33,8 +47,9 @@ int main(int argc, char** argv){
                 balance = 2;
             else
                 balance -= 1;
+            data.push(input);
 
-            while (balance == 0) {
+            while (balance == 0  && !data.empty()) {
                 int a = data.top() - '0';
                 data.pop();
                 int b = data.top() - '0';
