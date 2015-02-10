@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <set>
+#include <vector>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ int main(int argc, char** argv) {
   set<string> dict;
 
   bool split = false;
-  count i = 0;
+  int i = 0;
 
   while(getline(file, line)) {
 
@@ -25,20 +26,35 @@ int main(int argc, char** argv) {
     }
 
     if (split) {
-      dict.push(line);
+      dict.insert(line);
     }
 
     else {
-      source.push_back(vector <string>);
-      sorce[i].push_back(line);
+      source.push_back(vector<string>());
+      source[i].push_back(line);
       i++;
     }
   }
 
-  for (int j = 0; j < i; j++) {
+  for(int row = 0; row < i; row++) {
+
+    for(int col = 0; col < source[row].size(); col++) {
+
+      
+    }
+
+    //substitute
 
 
+    //add
+
+    //subtract
+
+
+    cout << source[row].size() - 1 << endl;
   }
+
+
 
 
 
