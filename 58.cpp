@@ -39,7 +39,13 @@ int main(int argc, char** argv) {
 
   for(unsigned int row = 0; row < source.size(); row++) {
 
+    copy.clear();
     copy = dict;
+
+    set<string>::iterator it = copy.find(source[row][0]);
+    if (it != copy.end()) {
+      copy.erase(it);
+    }
 
     for(unsigned int col = 0; col < source[row].size(); col++) {
       string cur;
@@ -50,10 +56,9 @@ int main(int argc, char** argv) {
         cur = source[row][col];
 
         for (int m = 0; m < 26; m++) {
-          cur[k] = 'a' + m;
+          cur[cur.begin() + k] = 'a' + m;
           set<string>::iterator it = copy.find(cur);
           if (it != copy.end()) {
-            //note: doesnt check if the word can be a friend with itself?
             copy.erase(it);
             source[row].push_back(cur);
           }
@@ -65,7 +70,7 @@ int main(int argc, char** argv) {
       for (unsigned int k = 0; k < source[row][col].size(); k++) {
 
         cur = source[row][col];
-        cur.insert(k, "a");
+        cur.insert(cur.begin() + k, 'a');
 
         for (int m = 0; m < 26; m++) {
           cur[k] = 'a' + m;
@@ -82,7 +87,7 @@ int main(int argc, char** argv) {
 
       for (unsigned int k = 0; k < source[row][col].size(); k++) {  
         cur = source[row][col];
-        cur.erase(k, 1);
+        cur.erase(cur.begin() + k);
 
         set<string>::iterator it = copy.find(cur);
 
@@ -94,7 +99,7 @@ int main(int argc, char** argv) {
       }
     }
 
-    cout << source[row].size() - 1 << endl;
+    cout << source[row].size() << '\n';
   }
 
   return 0;
