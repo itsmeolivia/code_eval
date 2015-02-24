@@ -21,7 +21,6 @@ int main(int argc, char** argv) {
   int i = 0;
 
   while(getline(file, line)) {
-
     if (line.compare("END OF INPUT") == 0) {
       split = true;
     }

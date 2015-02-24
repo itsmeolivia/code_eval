@@ -8,15 +8,16 @@ int main(int argc, char** argv) {
     ifstream file;
     file.open(argv[1]);
     
-    int step;
-    vector<int> staircase;
+    long step;
+    vector<long> staircase;
     
-    staircase[0] = 0;
-    staircase[1] = 1;
-    staircase[2] = 2;
-    while (cin >> step) {
+    staircase.push_back(0);
+    staircase.push_back(1);
+    staircase.push_back(2);
+    
+    while (file >> step) {
         
-        while(step <= staircase.size()) {
+        while(staircase.size() <= step) {
             int length = staircase.size();
             staircase.push_back(staircase[length - 1] + staircase[length - 2]);
             

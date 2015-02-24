@@ -22,29 +22,33 @@ int main(int argc, char** argv) {
     istringstream iss(line);
 
     array.clear();
-    while (iss >> num)
+    while (iss >> num) {
       num -= '0';
       array.push_back(num);
-
-      int total = 0;
-      unsigned int check = 0;
-      if (array.size() % 2 == 0)
-        check = 1;
-        for (unsigned int i = 0; i < array.size(); i++) {
-          if (i % 2 == check) {
-            array[i] *= 2;
-            if (array[i] > 9) {
-              array[i] = 1 + array[i] % 10;
-            }
-          }
-
-          total += array[i];
+    }
+    
+    int total = 0;
+    unsigned int check = 0;
+      
+    if (array.size() % 2 == 0)
+      check = 1;
+        
+    for (unsigned int i = 0; i < array.size(); i++) {
+        
+      if (i % 2 == check) {
+        array[i] *= 2;
+           
+        if (array[i] > 9) {
+          array[i] = 1 + array[i] % 10;
         }
+      }
+      total += array[i];
+   }
 
-        if (total % 10 == 0)
-          cout << "1\n";
-          else
-            cout << "0\n";
-          }
-          return 0;
-        }
+  if (total % 10 == 0)
+    cout << "1\n";
+  else
+      cout << "0\n";
+  }
+  return 0;
+}
